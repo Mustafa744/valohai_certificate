@@ -1,19 +1,18 @@
 - step:
-    name: Execute python main.py
-    image: tensorflow/tensorflow:2.7.0-gpu
-    command: python main.py
-- step:
-    name: train-model
-    image: tensorflow/tensorflow:2.12.0-gpu
-    command:
-    - pip install -r requirements.txt
-    - python ./main.py {parameters}
-    parameters:
-    - name: learning-rate
-      default: 0.001
-      optional: false
-      type: float
-    - name: epochs
-      default: 10
-      optional: false
-      type: integer
+      name: train-model
+      image: tensorflow/tensorflow:2.12.0-gpu
+      command:
+          - pip install -r requirements.txt
+          - python ./main.py {parameters}
+      parameters:
+          - name: learning-rate
+            default: 0.001
+            optional: false
+            type: float
+          - name: epochs
+            default: 10
+            optional: false
+            type: integer
+      inputs:
+          - name: dataset
+            default: mnist

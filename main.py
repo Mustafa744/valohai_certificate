@@ -35,7 +35,7 @@ def log_metadata(epoch, logs):
 #
 # Load the sample dataset using Tensorflow datasets
 (ds_train, ds_test), ds_info = tfds.load(
-    "mnist",
+    valohai.inputs("dataset"),
     split=["train", "test"],
     shuffle_files=True,
     as_supervised=True,
